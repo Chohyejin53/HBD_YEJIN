@@ -32,7 +32,7 @@ input,
 select,
 table,
 textarea {
-	font-family:'NotoSansR','나눔고딕',NanumGothic,'맑은 고딕',malgungothic,'굴림',Gulim,AppleGothic,sans-serif;
+	font-family:'NotoSansR', AppleGothic, sans-serif,'나눔고딕',NanumGothic,'맑은 고딕',malgungothic;
 	font-size: 18px;
 	line-height: normal;
 	letter-spacing: -0.3px;
@@ -122,18 +122,4 @@ a:hover {
 	font-family:'Museo_Slab_900';
 	src:url("../font/MuseoSlab/Museo_Slab_900.otf");
 	src:url("../font/MuseoSlab/Museo_Slab_900.woff") format("woff"),url("../font/MuseoSlab/Museo_Slab_900.woff2") format("woff2");
-}
-@font-face {
-	font-family:'Museo_Sans_300';
-	src:url("../font/MuseoSans/Museo_Sans_300.ttf") format("ttf"),url("../font/MuseoSans/Museo_Sans_300.woff") format("woff"),url("../font/MuseoSans/Museo_Sans_300.woff") format("woff");
-}
-@font-face {
-	font-family:'Museo_Sans_500';
-	src:url("../font/MuseoSans/Museo_Sans_500.otf");
-	src:url("../font/MuseoSans/Museo_Sans_500.woff") format("woff"),url("../font/MuseoSans/Museo_Sans_500.woff2") format("woff2");
-}
-@font-face {
-	font-family:'Museo_Sans_700';
-	src:url("../font/MuseoSans/Museo_Sans_700.otf");
-	src:url("../font/MuseoSans/Museo_Sans_700.woff") format("woff"),url("../font/MuseoSans/Museo_Sans_700.woff2") format("woff2");
 }

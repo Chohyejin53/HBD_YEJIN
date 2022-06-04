@@ -33,7 +33,7 @@ input,
 select,
 table,
 textarea {
-	font-family: 'NotoSansR','나눔고딕',NanumGothic,'맑은 고딕',malgungothic,'굴림',Gulim,AppleGothic,sans-serif;
+	font-family: 'NotoSansR', AppleGothic, sans-serif,'나눔고딕',NanumGothic,'맑은 고딕',malgungothic;
 	font-size: 18px;
 	line-height: normal;
 	letter-spacing: -0.3px;
@@ -130,23 +130,6 @@ a:hover {
 	src: url("../font/MuseoSlab/Museo_Slab_900.woff") format("woff"), url("../font/MuseoSlab/Museo_Slab_900.woff2") format("woff2");
 }
 
-@font-face {
-	font-family: 'Museo_Sans_300';
-	src: url("../font/MuseoSans/Museo_Sans_300.ttf") format("ttf"), url("../font/MuseoSans/Museo_Sans_300.woff") format("woff"), url("../font/MuseoSans/Museo_Sans_300.woff") format("woff");
-}
-
-@font-face {
-	font-family: 'Museo_Sans_500';
-	src: url("../font/MuseoSans/Museo_Sans_500.otf");
-	src: url("../font/MuseoSans/Museo_Sans_500.woff") format("woff"), url("../font/MuseoSans/Museo_Sans_500.woff2") format("woff2");
-}
-
-@font-face {
-	font-family: 'Museo_Sans_700';
-	src: url("../font/MuseoSans/Museo_Sans_700.otf");
-	src: url("../font/MuseoSans/Museo_Sans_700.woff") format("woff"), url("../font/MuseoSans/Museo_Sans_700.woff2") format("woff2");
-}
-
 /* border-radius */
 .wrap {
 	min-width: 320px;
@@ -176,21 +159,33 @@ a:hover {
 }
 
 .container .title {
-	font-family: 'Museo_Slab_500';
+	padding-bottom: 20px;
+	font-family: 'Museo_Slab_500', -apple-system, BlinkMacSystemFont, Roboto, 'Open Sans', 'Helvetica Neue', sans-serif Arial, Helvetica, sans-serif;
 	font-size: 20px;
-	line-height: 40px;
+	line-height: 1.5;
 	text-align: center;
 	color: #023047;
-}
-
-.container .text {
-	font-family: 'NotoSansR';
+	word-break: keep-all;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
 }
 
 .container .text.light_gray {
 	font-size: 10px;
 	line-height: 1.1;
 	color: #cccccc;
+}
+
+.container .text + .text {
+	margin-top: 3px;
+}
+
+.container .mo_320 {
+	display: none;
+}
+
+.container .pc_only {
+	display: block;
 }
 
 .spot .inner {
@@ -206,7 +201,7 @@ a:hover {
 }
 
 .spot .title {
-	font-family: 'Museo_Slab_900';
+	font-family: 'Museo_Slab_900', -apple-system, BlinkMacSystemFont, Roboto, 'Open Sans', 'Helvetica Neue', sans-serif Arial, Helvetica, sans-serif;
 	font-size: 36px;
 	line-height: 40px;
 	text-align: center;
@@ -219,8 +214,8 @@ a:hover {
 .spot .text {
 	margin: 10px 0;
 	font-size: 12px;
-	line-height: normal;
-	color: #666;
+	line-height: 1.3;
+	color: #333;
 }
 
 .spot .video_box {
@@ -250,13 +245,46 @@ a:hover {
 }
 
 .info .title {
+	position: relative;
+	min-width: 11px;
+	height: 12px;
+	width: 280px;
+	margin: 0 auto;
+	white-space: nowrap;
+	color: transparent;
 	word-break: keep-all;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 }
 
+.info .title::before {
+	content: "2022년 06월 06일은 한예진 생일!";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	font-size: 16px;
+	color: black;
+	overflow: hidden;
+	border-right: 1px solid black;
+	animation: typing 6s steps(23) forwards;
+}
+
+@keyframes typing {
+	0% {
+		width: 0%;
+	}
+	50% {
+		width: 50%;
+	}
+	100% {
+		width: 100%;
+	}
+}
+
 .info .text {
-	font-size: 13px;
+	font-size: 12px;
 	font-weight: normal;
 	color: #666;
 }
@@ -264,7 +292,6 @@ a:hover {
 .info .button_box {
 	position: relative;
 	display: block;
-	width: 100%;
 	padding: 17px 20px;
 	background-color: #fff;
 	-o-border-radius: 15px;
@@ -278,11 +305,11 @@ a:hover {
 	margin-top: 8px;
 }
 
-.info .button_box.download {
+.info .button_box.icon_1 {
 	margin-top: 12px;
 }
 
-.info .button_box.download::after {
+.info .button_box.icon_1::after {
 	content: '🎁';
 	font-size: 40px;
 	position: absolute;
@@ -292,11 +319,11 @@ a:hover {
 	height: 45px;
 }
 
-.info .button_box.share {
+.info .button_box.icon_2 {
 	margin-bottom: 29px;
 }
 
-.info .button_box.share::after {
+.info .button_box.icon_2::after {
 	content: '🤔';
 	font-size: 40px;
 	position: absolute;
@@ -323,48 +350,60 @@ a:hover {
 }
 
 .info .sub_title {
-	font-family: 'Museo_Slab_700';
+	font-family: 'Museo_Slab_700', -apple-system, BlinkMacSystemFont, Roboto, 'Open Sans', 'Helvetica Neue', sans-serif Arial, Helvetica, sans-serif;
 	font-size: 18px;
 	color: #222;
+	word-break: keep-all;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
 }
 
 .info .sub_text {
-	font-family: 'Museo_Slab_500';
+	font-family: 'Museo_Slab_500', -apple-system, BlinkMacSystemFont, Roboto, 'Open Sans', 'Helvetica Neue', sans-serif Arial, Helvetica, sans-serif;
 	margin-bottom: 24px;
 	font-size: 12px;
+	line-height: 1.2;
 	color: #666;
+	word-break: keep-all;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
 }
 
 .info .sub_text em {
+	display: block;
+	padding: 5px 0;
 	font-family: 'NotoSansM';
 	font-weight: 800;
+	font-style: italic;
 	font-size: 16px;
 	color: #007f5f;
 }
 
-.info .info_list {
+.info .tab_list {
 	margin-top: 10px;
 }
 
-.info .info_list .list_item {
+.info .tab_list .list_item {
 	position: relative;
+	height: 65px;
 	padding-left: 74px;
 }
 
-.info .info_list .list_item + .list_item {
+.info .tab_list .list_item + .list_item {
 	margin-top: 17px;
 }
 
-.info .info_list .list_item.item_1::before {
-	content: '';
+.info .tab_list .list_item.item_1::before {
+	content: '⏰';
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 60px;
 	height: 60px;
-	background: #fff url("../img/ico_1.png") no-repeat 50% 50%;
-	background-size: 34px 34px;
-	-webkit-background-size: 34px 34px;
+	font-size: 30px;
+	text-align: center;
+	line-height: 2;
+	background-color: rgba(255, 255, 255, 0.5);
 	-o-border-radius: 50%;
 	-ms-border-radius: 50%;
 	-moz-border-radius: 50%;
@@ -372,16 +411,17 @@ a:hover {
 	border-radius: 50%;
 }
 
-.info .info_list .list_item.item_1::before {
-	content: '';
+.info .tab_list .list_item.item_2::before {
+	content: '💸';
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 60px;
 	height: 60px;
-	background: #fff url("../img/ico_1.png") no-repeat 50% 50%;
-	background-size: 34px 34px;
-	-webkit-background-size: 34px 34px;
+	font-size: 30px;
+	text-align: center;
+	line-height: 2;
+	background-color: rgba(255, 255, 255, 0.5);
 	-o-border-radius: 50%;
 	-ms-border-radius: 50%;
 	-moz-border-radius: 50%;
@@ -389,16 +429,17 @@ a:hover {
 	border-radius: 50%;
 }
 
-.info .info_list .list_item.item_2::before {
-	content: '';
+.info .tab_list .list_item.item_3::before {
+	content: '🐾';
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 60px;
 	height: 60px;
-	background: #fff url("../img/ico_2.png") no-repeat 50% 50%;
-	background-size: 34px 34px;
-	-webkit-background-size: 34px 34px;
+	font-size: 30px;
+	text-align: center;
+	line-height: 2;
+	background-color: rgba(255, 255, 255, 0.5);
 	-o-border-radius: 50%;
 	-ms-border-radius: 50%;
 	-moz-border-radius: 50%;
@@ -406,24 +447,7 @@ a:hover {
 	border-radius: 50%;
 }
 
-.info .info_list .list_item.item_3::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 60px;
-	height: 60px;
-	background: #fff url("../img/ico_3.png") no-repeat 50% 50%;
-	background-size: 34px 34px;
-	-webkit-background-size: 34px 34px;
-	-o-border-radius: 50%;
-	-ms-border-radius: 50%;
-	-moz-border-radius: 50%;
-	-webkit-border-radius: 50%;
-	border-radius: 50%;
-}
-
-.info .info_list .list_item p {
+.info .tab_list .list_item p {
 	font-family: 'NotoSansM';
 	font-size: 12px;
 	line-height: 1.2;
@@ -433,43 +457,43 @@ a:hover {
 	overflow-wrap: break-word;
 }
 
-.info .info_list .list_item p em {
+.info .tab_list .list_item p em {
 	font-family: 'NotoSansB';
 	color: #007f5f;
 }
 
-.info .info_list .list_item span {
+.info .tab_list .list_item span {
 	font-size: 10px;
 	line-height: 1.1;
 	color: #777;
 }
 
-.guide {
+.gift {
 	background-color: #fff;
 }
 
-.guide .inner {
+.gift .inner {
 	padding: 30px 20px;
 }
 
-.guide .title {
-	font-family: 'Museo_Slab_900';
+.gift .title {
+	font-family: 'Museo_Slab_900', -apple-system, BlinkMacSystemFont, Roboto, 'Open Sans', 'Helvetica Neue', sans-serif Arial, Helvetica, sans-serif;
 	height: 52px;
 }
 
-.guide .text {
+.gift .text {
 	margin-bottom: 13px;
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: normal;
 	color: #666;
 	text-align: left;
 }
 
-.guide .guide_list {
+.gift .gift_list {
 	text-align: center;
 }
 
-.guide .guide_list .list_item {
+.gift .gift_list .list_item {
 	background-color: #d8f3dc;
 	padding: 22px 20px 18px;
 	-o-border-radius: 15px;
@@ -479,22 +503,22 @@ a:hover {
 	border-radius: 15px;
 }
 
-.guide .guide_list .list_item + .list_item {
+.gift .gift_list .list_item + .list_item {
 	margin-top: 10px;
 }
 
-.guide .guide_list .list_title {
+.gift .gift_list .list_title {
 	display: inline-block;
 	position: relative;
 	margin-bottom: 15px;
-	padding-left: 35px;
-	font-family: 'Museo_Slab_700';
+	padding: 0 35px;
+	font-family: 'Museo_Slab_700', -apple-system, BlinkMacSystemFont, Roboto, 'Open Sans', 'Helvetica Neue', sans-serif Arial, Helvetica, sans-serif;
 	font-size: 20px;
 	line-height: 28px;
 	color: #333;
 }
 
-.guide .guide_list .list_title::before {
+.gift .gift_list .list_title::before {
 	content: '🎁';
 	position: absolute;
 	top: 0;
@@ -503,114 +527,130 @@ a:hover {
 	height: 28px;
 }
 
-.guide .guide_list .list_text {
-	font-family: 'NotoSansR';
-	text-align: left;
-	margin-bottom: 12px;
-	font-size: 13px;
-	color: #333;
+.gift .gift_list .list_title::after {
+	content: '🎁';
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 28px;
+	height: 28px;
 }
 
-.guide .guide_list .list_text.img_des {
+.gift .gift_list .list_text {
+	margin-bottom: 12px;
+	font-family: 'NotoSansR';
+	font-size: 11px;
+	text-align: left;
+	color: #666;
+}
+
+.gift .gift_list .list_text.img_des_1 {
 	position: relative;
 	overflow: hidden;
-	padding-right: 155px;
+	padding-right: 130px;
 }
 
-.guide .guide_list .list_text.img_des::after {
+.gift .gift_list .list_text.img_des_1::after {
 	content: '';
 	position: absolute;
 	top: 50%;
 	right: -4px;
 	transform: translateY(-50%);
-	width: 155px;
+	width: 119px;
 	height: 168px;
-	background: #fff url("../img/book_cover.png") no-repeat 0 0;
-	background-size: 155px 168px;
-	-webkit-background-size: 155px 168px;
+	background: #fff url("../img/raw_lab_img.png") no-repeat 0 0;
+	background-size: 119px auto;
+	-webkit-background-size: 119px auto;
 }
 
-.guide .guide_list .video_box {
+.gift .gift_list .list_text.img_des_2 {
+	position: relative;
+	overflow: hidden;
+	padding-right: 130px;
+}
+
+.gift .gift_list .list_text.img_des_2::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: -4px;
+	transform: translateY(-50%);
+	width: 112px;
+	height: 168px;
+	background: #fff url("../img/bag.gif") no-repeat 0 0;
+	background-size: contain;
+	-webkit-background-size: contain;
+}
+
+.gift .gift_list .video_box {
 	width: 100%;
 	margin: 0 auto;
 }
 
-.guide .guide_list .down_load_btn {
+.gift .gift_list .img_box {
+	width: 295px;
+}
+
+.gift .gift_list .img_box img {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.gift .gift_list .search_link_btn {
 	display: block;
 	width: 100%;
 	margin: 14px auto 0;
 	padding: 10px 0;
+	color: #fff;
 	-o-border-radius: 50px;
 	-ms-border-radius: 50px;
 	-moz-border-radius: 50px;
 	-webkit-border-radius: 50px;
 	border-radius: 50px;
-	background-color: #0dcb67;
+	background-color: #007f5f;
 }
 
-.guide .guide_list .down_text {
+.gift .gift_list .link_text {
 	display: inline-block;
 	position: relative;
 	padding-right: 30px;
-	font-family: 'Museo_Slab_500';
+	font-family: 'Museo_Slab_500', -apple-system, BlinkMacSystemFont, Roboto, 'Open Sans', 'Helvetica Neue', sans-serif Arial, Helvetica, sans-serif;
 	font-size: 18px;
 	color: #fff;
 }
 
-.guide .guide_list .down_text::after {
-	content: '▶︎';
+.gift .gift_list .link_text::after {
+	content: '🔍';
 	position: absolute;
-	top: 2px;
+	top: -2px;
 	right: 0;
 	width: 26px;
 	height: 26px;
 }
 
-.guide .important_list_title {
-	display: block;
-	margin-bottom: 5px;
-	font-weight: bold;
-	font-size: 14px;
-	color: #0dcb67;
+.detail_list_box .detail_list {
 	text-align: left;
-}
-
-.important_list_box {
-	text-align: left;
-}
-
-.important_list_box:after {
-	content: '';
-	display: block;
-	clear: both;
-}
-
-.important_list_box .important_list {
-	float: left;
-	width: 50%;
 	margin-bottom: 11px;
 }
 
-.important_list_box .important_list .list_item {
+.detail_list_box .detail_list .list_item {
 	position: relative;
 	padding: 0 0 0 6px;
-	font-size: 13px;
-	line-height: 15px;
-	color: #666;
+	color: #222;
 }
 
-.important_list_box .important_list .list_item + .list_item {
+.detail_list_box .detail_list .list_item + .list_item {
 	margin-top: 0;
 }
 
-.important_list_box .important_list .list_item::before {
+.detail_list_box .detail_list .list_item::before {
 	content: '';
 	position: absolute;
-	top: 8px;
+	top: 10px;
 	left: 0;
-	width: 3px;
-	height: 3px;
-	background-color: #0dcb67;
+	width: 2px;
+	height: 2px;
+	background-color: #222;
 	-o-border-radius: 50%;
 	-ms-border-radius: 50%;
 	-moz-border-radius: 50%;
@@ -618,35 +658,40 @@ a:hover {
 	border-radius: 50%;
 }
 
-.more_info {
+.detail_list_box .detail_list .list_item a {
+	display: inline-block;
+	font-size: 11px;
+	font-family: "NotoSansB";
+	line-height: 15px;
+	text-decoration: underline;
+	color: #000;
+}
+
+.food_spot {
 	background-color: #f3f6f9;
 }
 
-.more_info .inner {
+.food_spot .inner {
 	padding: 30px 20px;
 }
 
-.more_info .title {
-	height: 52px;
-}
-
-.more_info .sub_title {
+.food_spot .sub_title {
 	margin-top: 30px;
-	font-family: 'Museo_Slab_700';
+	font-family: 'Museo_Slab_700', AppleGothic, Arial, sans-serif Arial,'Open Sans',-apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue',  Helvetica, sans-serif;
 	font-size: 18px;
 	line-height: 26px;
 	letter-spacing: -0.6px;
 	color: #222;
 }
 
-.more_info .text {
+.food_spot .text {
 	margin-bottom: 12px;
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: normal;
-	color: #666;
+	color: #555;
 }
 
-.more_info .download_list .list_item {
+.food_spot .spot_list .list_item {
 	background-color: #e4eaf1;
 	padding: 22px 20px 18px;
 	-o-border-radius: 15px;
@@ -656,27 +701,42 @@ a:hover {
 	border-radius: 15px;
 }
 
-.more_info .download_list .list_item + .list_item {
+.food_spot .spot_list .list_item + .list_item {
 	margin-top: 10px;
 }
 
-.more_info .download_list .list_title {
+.food_spot .spot_list .list_title {
 	margin-bottom: 15px;
-	font-family: 'NotoSansBoldJP';
 	font-size: 18px;
 	line-height: 24px;
 	text-align: center;
 	color: #333;
 }
 
-.more_info .download_list .list_text {
-	font-family: 'HelveticaNeue','NotoSansMediumJP';
+.food_spot .spot_list .list_title u {
+	display: block;
+	font-size: 10px;
+	color: #999;
+}
+
+.food_spot .spot_list .img_box {
+	width: 295px;
+	padding-bottom: 15px;
+}
+
+.food_spot .spot_list .img_box img {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.food_spot .spot_list .list_text {
 	margin-bottom: 12px;
-	font-size: 14px;
+	font-family: 'NotoSansR';
+	font-size: 11px;
 	color: #666;
 }
 
-.more_info .download_list .down_load_btn {
+.food_spot .spot_list .search_link_btn {
 	display: block;
 	width: 100%;
 	margin: 14px auto 0;
@@ -687,30 +747,48 @@ a:hover {
 	-moz-border-radius: 50px;
 	-webkit-border-radius: 50px;
 	border-radius: 50px;
-	background-color: #007f5f;
+	background-color: #023047;
 }
 
-.more_info .download_list .down_text {
+.food_spot .spot_list .link_text {
 	display: inline-block;
 	position: relative;
-	padding-right: 30px;
-	font-family: 'SeuratProB';
-	font-size: 18px;
+	font-size: 16px;
 	color: #fff;
 }
 
-.more_info .download_list .down_text::after {
-	content: '🧭';
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 26px;
-	height: 26px;
+.footer {
+	background-color: #f3f6f9;
 }
 
-.more_info .btn {
-	width: 100%;
-	height: 60px;
+.footer .inner {
+	padding: 23px 48px;
+	text-align: center;
+}
+
+.footer .title {
+	font-size: 16px;
+	line-height: 1.1;
+	color: #007f5f;
+}
+
+.footer .title u {
+	display: block;
+	text-align: center;
+	font-size: 10px;
+	line-height: 1;
+	text-decoration: none;
+	color: #666;
+}
+
+.footer .btn {
+	display: block;
+	height: 40px;
+	padding: 18px 46px 0 20px;
+	font-weight: bold;
+	font-size: 16px;
+	text-align: left;
+	color: #007f5f;
 	background-color: #fff;
 	box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.14);
 	-o-border-radius: 15px;
@@ -720,17 +798,16 @@ a:hover {
 	border-radius: 15px;
 }
 
-.more_info .btn + .btn {
+.footer .btn + .btn {
 	margin-top: 8px;
 }
 
-.more_info .btn.share {
+.footer .btn.share {
 	position: relative;
 	margin-top: 15px;
-	padding: 0 46px 0 20px;
 }
 
-.more_info .btn.share::after {
+.footer .btn.share::after {
 	content: '';
 	position: absolute;
 	top: 15px;
@@ -742,13 +819,12 @@ a:hover {
 	-webkit-background-size: 26px 26px;
 }
 
-.more_info .btn.mail {
+.footer .btn.sms {
 	position: relative;
 	margin-bottom: 32px;
-	padding: 0 46px 0 20px;
 }
 
-.more_info .btn.mail::after {
+.footer .btn.sms::after {
 	content: '';
 	position: absolute;
 	top: 15px;
@@ -760,101 +836,60 @@ a:hover {
 	-webkit-background-size: 26px 26px;
 }
 
-.more_info .btn_download {
-	display: inline-block;
-	position: relative;
-	width: 335px;
-	height: 72px;
-	background-color: #444a61;
-	-o-border-radius: 50px;
-	-ms-border-radius: 50px;
-	-moz-border-radius: 50px;
-	-webkit-border-radius: 50px;
-	border-radius: 50px;
-	padding: 17px 43px 19px 75px;
-	font-family: 'SeuratProB';
-	font-size: 18px;
-	color: #fff;
-}
-
-.more_info .btn_download .mo_320 {
-	display: none;
-}
-
-.more_info .btn_download .important {
-	color: #007f5f;
-}
-
-.more_info .btn_download::before {
-	content: '';
-	position: absolute;
-	top: 14px;
-	left: 25px;
-	width: 42px;
-	height: 43px;
-	background: url("../img/ico_band.png") 0 0 no-repeat;
-	background-size: 42px 43px;
-	-webkit-background-size: 42px 43px;
-}
-
-.more_info .btn_download::after {
-	content: '';
-	position: absolute;
-	top: 29px;
-	right: 26px;
-	width: 14px;
-	height: 14px;
-	background: url("../img/ico_arrow_wh.png") 0 0 no-repeat;
-	background-size: 14px 14px;
-	-webkit-background-size: 14px 14px;
-}
-
-.footer {
-	background-color: #f3f6f9;
-}
-
-.footer .inner {
-	border-top: 1px solid #e1e5ea;
-	padding: 23px 48px;
-	text-align: center;
-}
-
 .footer .text {
-	font-size: 14px;
+	border-top: 1px solid #e1e5ea;
+	padding-top: 20px;
+	font-size: 12px;
 	text-align: center;
-	color: #666;
-}
-
-.footer .footer_link {
-	display: inline-block;
-	text-align: center;
-	padding-right: 10px;
-	vertical-align: middle;
-	color: #0dcb67;
-}
-
-.footer .footer_link::after {
-	content: '';
-	display: inline-block;
-	width: 10px;
-	height: 10px;
-	vertical-align: middle;
-	background: url("../img/ico_arrow_gr.png") 0 0 no-repeat;
-	background-size: 10px 10px;
-	-webkit-background-size: 10px 10px;
+	color: #555;
 }
 
 @media screen and (max-width: 374px) {
-	.more_info .btn_download {
-		width: 100%;
-		padding: 14px 70px 14px 80px;
-		font-family: 'SeuratProB';
-		font-size: 18px;
-		line-height: 22px;
-		text-align: left;
-	}
-	.more_info .btn_download .mo_320 {
+	.container .mo_320 {
 		display: block;
+	}
+	.container .pc_only {
+		display: none;
+	}
+	.info .button_box.icon_1::after {
+		right: 8px;
+		font-size: 30px;
+	}
+	.info .button_box.icon_2::after {
+		right: 8px;
+		font-size: 30px;
+	}
+	.spot .video_box {
+		margin: 0 auto;
+	}
+	.gift .gift_list .img_box {
+		width: 245px;
+	}
+	.food_spot .spot_list .img_box {
+		width: 245px;
+	}
+	.footer .btn {
+		height: 30px;
+		padding: 16px 46px 0 20px;
+		font-size: 13px;
+	}
+	.footer .btn.share {
+		position: relative;
+	}
+	.footer .btn.share::after {
+		content: '';
+		position: absolute;
+		top: 10px;
+		right: 20px;
+	}
+	.footer .btn.sms {
+		position: relative;
+	}
+	.footer .btn.sms::after {
+		content: '';
+		position: absolute;
+		top: 10px;
+		right: 20px;
 	}
 }
 
