@@ -1,0 +1,861 @@
+@charset "UTF-8";
+body,
+button,
+dd,
+dl,
+dt,
+fieldset,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+legend,
+li,
+ol,
+p,
+select,
+table,
+td,
+textarea,
+th,
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+body,
+button,
+input,
+select,
+table,
+textarea {
+	font-family: 'NotoSansR','나눔고딕',NanumGothic,'맑은 고딕',malgungothic,'굴림',Gulim,AppleGothic,sans-serif;
+	font-size: 18px;
+	line-height: normal;
+	letter-spacing: -0.3px;
+	color: #000;
+}
+
+button,
+input,
+a {
+	cursor: pointer;
+}
+
+button {
+	border: none;
+}
+
+fieldset,
+img {
+	border: 0;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+address,
+em {
+	font-style: normal;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:active,
+a:focus,
+a:hover {
+	text-decoration: none;
+}
+
+.blind {
+	overflow: hidden !important;
+	position: absolute !important;
+	clip: rect(0, 0, 0, 0) !important;
+	width: 1px !important;
+	height: 1px !important;
+	margin: -1px !important;
+}
+
+/* font */
+@font-face {
+	font-family: 'NotoSansR';
+	src: url("../font/NotoSans/NotoSansKR-Regular-Hestia.otf");
+	src: url("../font/NotoSans/NotoSansKR-Regular-Hestia.eot");
+	src: url("../font/NotoSans/NotoSansKR-Regular-Hestia.eot?#iefix") format("embedded-opentype"), url("../font/NotoSans/NotoSansKR-Regular-Hestia.woff") format("woff"), url("../font/NotoSans/NotoSansKR-Regular-Hestia.ttf") format("ttf");
+}
+
+@font-face {
+	font-family: 'NotoSansB';
+	src: url("../font/NotoSans/NotoSansKR-Bold-Hestia.otf");
+	src: url("../font/NotoSans/NotoSansKR-Bold-Hestia.eot");
+	src: url("../font/NotoSans/NotoSansKR-Bold-Hestia.eot?#iefix") format("embedded-opentype"), url("../font/NotoSans/NotoSansKR-Bold-Hestia.woff") format("woff"), url("../font/NotoSans/NotoSansKR-Bold-Hestia.ttf") format("ttf");
+}
+
+@font-face {
+	font-family: 'NotoSansM';
+	src: url("../font/NotoSans/NotoSansKR-Medium-Hestia.otf");
+	src: url("../font/NotoSans/NotoSansKR-Medium-Hestia.eot");
+	src: url("../font/NotoSans/NotoSansKR-Medium-Hestia.eot?#iefix") format("embedded-opentype"), url("../font/NotoSans/NotoSansKR-Medium-Hestia.woff") format("woff"), url("../font/NotoSans/NotoSansKR-Medium-Hestia.ttf") format("ttf");
+}
+
+@font-face {
+	font-family: 'Museo_Sanb_300';
+	src: url("../font/MuseoSlab/Museo_Sanb_300.otf");
+	src: url("../font/MuseoSlab/Museo_Sanb_300.woff") format("woff"), url("../font/MuseoSlab/Museo_Sanb_300.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: 'Museo_Slab_500';
+	src: url("../font/MuseoSlab/Museo_Slab_500.otf");
+	src: url("../font/MuseoSlab/Museo_Slab_500.woff") format("woff"), url("../font/MuseoSlab/Museo_Slab_500.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: 'Museo_Slab_700';
+	src: url("../font/MuseoSlab/Museo_Slab_700.otf");
+	src: url("../font/MuseoSlab/Museo_Slab_700.woff") format("woff"), url("../font/MuseoSlab/Museo_Slab_700.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: 'Museo_Slab_900';
+	src: url("../font/MuseoSlab/Museo_Slab_900.otf");
+	src: url("../font/MuseoSlab/Museo_Slab_900.woff") format("woff"), url("../font/MuseoSlab/Museo_Slab_900.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: 'Museo_Sans_300';
+	src: url("../font/MuseoSans/Museo_Sans_300.ttf") format("ttf"), url("../font/MuseoSans/Museo_Sans_300.woff") format("woff"), url("../font/MuseoSans/Museo_Sans_300.woff") format("woff");
+}
+
+@font-face {
+	font-family: 'Museo_Sans_500';
+	src: url("../font/MuseoSans/Museo_Sans_500.otf");
+	src: url("../font/MuseoSans/Museo_Sans_500.woff") format("woff"), url("../font/MuseoSans/Museo_Sans_500.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: 'Museo_Sans_700';
+	src: url("../font/MuseoSans/Museo_Sans_700.otf");
+	src: url("../font/MuseoSans/Museo_Sans_700.woff") format("woff"), url("../font/MuseoSans/Museo_Sans_700.woff2") format("woff2");
+}
+
+/* border-radius */
+.wrap {
+	min-width: 320px;
+	box-sizing: border-box;
+}
+
+.wrap canvas {
+	z-index: 100;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	pointer-events: none;
+	transform: scale(1.1);
+}
+
+.container {
+	position: relative;
+}
+
+.container .inner {
+	max-width: 375px;
+	min-width: 320px;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+.container .title {
+	font-family: 'Museo_Slab_500';
+	font-size: 20px;
+	line-height: 40px;
+	text-align: center;
+	color: #023047;
+}
+
+.container .text {
+	font-family: 'NotoSansR';
+}
+
+.container .text.light_gray {
+	font-size: 10px;
+	line-height: 1.1;
+	color: #cccccc;
+}
+
+.spot .inner {
+	position: relative;
+	padding: 24px 20px 10px;
+}
+
+.spot .sub_title {
+	font-size: 18px;
+	line-height: 40px;
+	text-align: center;
+	color: #023047;
+}
+
+.spot .title {
+	font-family: 'Museo_Slab_900';
+	font-size: 36px;
+	line-height: 40px;
+	text-align: center;
+	color: #023047;
+	word-break: keep-all;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+}
+
+.spot .text {
+	margin: 10px 0;
+	font-size: 12px;
+	line-height: normal;
+	color: #666;
+}
+
+.spot .video_box {
+	width: 100%;
+	height: 188px;
+	margin: 0 auto;
+}
+
+.info {
+	position: relative;
+	background-color: #d8f3dc;
+}
+
+.info::before {
+	background-color: #d8f3dc;
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: -57px;
+	height: 57px;
+	z-index: -10;
+}
+
+.info .inner {
+	padding: 10px 20px 32px;
+}
+
+.info .title {
+	word-break: keep-all;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+}
+
+.info .text {
+	font-size: 13px;
+	font-weight: normal;
+	color: #666;
+}
+
+.info .button_box {
+	position: relative;
+	display: block;
+	width: 100%;
+	padding: 17px 20px;
+	background-color: #fff;
+	-o-border-radius: 15px;
+	-ms-border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
+}
+
+.info .button_box + .button_box {
+	margin-top: 8px;
+}
+
+.info .button_box.download {
+	margin-top: 12px;
+}
+
+.info .button_box.download::after {
+	content: '🎁';
+	font-size: 40px;
+	position: absolute;
+	top: 14px;
+	right: 20px;
+	width: 45px;
+	height: 45px;
+}
+
+.info .button_box.share {
+	margin-bottom: 29px;
+}
+
+.info .button_box.share::after {
+	content: '🤔';
+	font-size: 40px;
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	width: 45px;
+	height: 45px;
+}
+
+.info .button_box span {
+	display: block;
+	text-align: left;
+	padding-right: 26px;
+	font-size: 13px;
+	color: #444a61;
+}
+
+.info .button_box em {
+	display: block;
+	text-align: left;
+	padding-right: 26px;
+	font-size: 16px;
+	color: #fb8500;
+}
+
+.info .sub_title {
+	font-family: 'Museo_Slab_700';
+	font-size: 18px;
+	color: #222;
+}
+
+.info .sub_text {
+	font-family: 'Museo_Slab_500';
+	margin-bottom: 24px;
+	font-size: 12px;
+	color: #666;
+}
+
+.info .sub_text em {
+	font-family: 'NotoSansM';
+	font-weight: 800;
+	font-size: 16px;
+	color: #007f5f;
+}
+
+.info .info_list {
+	margin-top: 10px;
+}
+
+.info .info_list .list_item {
+	position: relative;
+	padding-left: 74px;
+}
+
+.info .info_list .list_item + .list_item {
+	margin-top: 17px;
+}
+
+.info .info_list .list_item.item_1::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 60px;
+	height: 60px;
+	background: #fff url("../img/ico_1.png") no-repeat 50% 50%;
+	background-size: 34px 34px;
+	-webkit-background-size: 34px 34px;
+	-o-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.info .info_list .list_item.item_1::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 60px;
+	height: 60px;
+	background: #fff url("../img/ico_1.png") no-repeat 50% 50%;
+	background-size: 34px 34px;
+	-webkit-background-size: 34px 34px;
+	-o-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.info .info_list .list_item.item_2::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 60px;
+	height: 60px;
+	background: #fff url("../img/ico_2.png") no-repeat 50% 50%;
+	background-size: 34px 34px;
+	-webkit-background-size: 34px 34px;
+	-o-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.info .info_list .list_item.item_3::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 60px;
+	height: 60px;
+	background: #fff url("../img/ico_3.png") no-repeat 50% 50%;
+	background-size: 34px 34px;
+	-webkit-background-size: 34px 34px;
+	-o-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.info .info_list .list_item p {
+	font-family: 'NotoSansM';
+	font-size: 12px;
+	line-height: 1.2;
+	color: #333;
+	word-break: keep-all;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+}
+
+.info .info_list .list_item p em {
+	font-family: 'NotoSansB';
+	color: #007f5f;
+}
+
+.info .info_list .list_item span {
+	font-size: 10px;
+	line-height: 1.1;
+	color: #777;
+}
+
+.guide {
+	background-color: #fff;
+}
+
+.guide .inner {
+	padding: 30px 20px;
+}
+
+.guide .title {
+	font-family: 'Museo_Slab_900';
+	height: 52px;
+}
+
+.guide .text {
+	margin-bottom: 13px;
+	font-size: 14px;
+	font-weight: normal;
+	color: #666;
+	text-align: left;
+}
+
+.guide .guide_list {
+	text-align: center;
+}
+
+.guide .guide_list .list_item {
+	background-color: #d8f3dc;
+	padding: 22px 20px 18px;
+	-o-border-radius: 15px;
+	-ms-border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
+}
+
+.guide .guide_list .list_item + .list_item {
+	margin-top: 10px;
+}
+
+.guide .guide_list .list_title {
+	display: inline-block;
+	position: relative;
+	margin-bottom: 15px;
+	padding-left: 35px;
+	font-family: 'Museo_Slab_700';
+	font-size: 20px;
+	line-height: 28px;
+	color: #333;
+}
+
+.guide .guide_list .list_title::before {
+	content: '🎁';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 28px;
+	height: 28px;
+}
+
+.guide .guide_list .list_text {
+	font-family: 'NotoSansR';
+	text-align: left;
+	margin-bottom: 12px;
+	font-size: 13px;
+	color: #333;
+}
+
+.guide .guide_list .list_text.img_des {
+	position: relative;
+	overflow: hidden;
+	padding-right: 155px;
+}
+
+.guide .guide_list .list_text.img_des::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: -4px;
+	transform: translateY(-50%);
+	width: 155px;
+	height: 168px;
+	background: #fff url("../img/book_cover.png") no-repeat 0 0;
+	background-size: 155px 168px;
+	-webkit-background-size: 155px 168px;
+}
+
+.guide .guide_list .video_box {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.guide .guide_list .down_load_btn {
+	display: block;
+	width: 100%;
+	margin: 14px auto 0;
+	padding: 10px 0;
+	-o-border-radius: 50px;
+	-ms-border-radius: 50px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+	background-color: #0dcb67;
+}
+
+.guide .guide_list .down_text {
+	display: inline-block;
+	position: relative;
+	padding-right: 30px;
+	font-family: 'Museo_Slab_500';
+	font-size: 18px;
+	color: #fff;
+}
+
+.guide .guide_list .down_text::after {
+	content: '▶︎';
+	position: absolute;
+	top: 2px;
+	right: 0;
+	width: 26px;
+	height: 26px;
+}
+
+.guide .important_list_title {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+	font-size: 14px;
+	color: #0dcb67;
+	text-align: left;
+}
+
+.important_list_box {
+	text-align: left;
+}
+
+.important_list_box:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.important_list_box .important_list {
+	float: left;
+	width: 50%;
+	margin-bottom: 11px;
+}
+
+.important_list_box .important_list .list_item {
+	position: relative;
+	padding: 0 0 0 6px;
+	font-size: 13px;
+	line-height: 15px;
+	color: #666;
+}
+
+.important_list_box .important_list .list_item + .list_item {
+	margin-top: 0;
+}
+
+.important_list_box .important_list .list_item::before {
+	content: '';
+	position: absolute;
+	top: 8px;
+	left: 0;
+	width: 3px;
+	height: 3px;
+	background-color: #0dcb67;
+	-o-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.more_info {
+	background-color: #f3f6f9;
+}
+
+.more_info .inner {
+	padding: 30px 20px;
+}
+
+.more_info .title {
+	height: 52px;
+}
+
+.more_info .sub_title {
+	margin-top: 30px;
+	font-family: 'Museo_Slab_700';
+	font-size: 18px;
+	line-height: 26px;
+	letter-spacing: -0.6px;
+	color: #222;
+}
+
+.more_info .text {
+	margin-bottom: 12px;
+	font-size: 14px;
+	font-weight: normal;
+	color: #666;
+}
+
+.more_info .download_list .list_item {
+	background-color: #e4eaf1;
+	padding: 22px 20px 18px;
+	-o-border-radius: 15px;
+	-ms-border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
+}
+
+.more_info .download_list .list_item + .list_item {
+	margin-top: 10px;
+}
+
+.more_info .download_list .list_title {
+	margin-bottom: 15px;
+	font-family: 'NotoSansBoldJP';
+	font-size: 18px;
+	line-height: 24px;
+	text-align: center;
+	color: #333;
+}
+
+.more_info .download_list .list_text {
+	font-family: 'HelveticaNeue','NotoSansMediumJP';
+	margin-bottom: 12px;
+	font-size: 14px;
+	color: #666;
+}
+
+.more_info .download_list .down_load_btn {
+	display: block;
+	width: 100%;
+	margin: 14px auto 0;
+	padding: 10px 0;
+	text-align: center;
+	-o-border-radius: 50px;
+	-ms-border-radius: 50px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+	background-color: #007f5f;
+}
+
+.more_info .download_list .down_text {
+	display: inline-block;
+	position: relative;
+	padding-right: 30px;
+	font-family: 'SeuratProB';
+	font-size: 18px;
+	color: #fff;
+}
+
+.more_info .download_list .down_text::after {
+	content: '🧭';
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 26px;
+	height: 26px;
+}
+
+.more_info .btn {
+	width: 100%;
+	height: 60px;
+	background-color: #fff;
+	box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.14);
+	-o-border-radius: 15px;
+	-ms-border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
+}
+
+.more_info .btn + .btn {
+	margin-top: 8px;
+}
+
+.more_info .btn.share {
+	position: relative;
+	margin-top: 15px;
+	padding: 0 46px 0 20px;
+}
+
+.more_info .btn.share::after {
+	content: '';
+	position: absolute;
+	top: 15px;
+	right: 20px;
+	width: 26px;
+	height: 26px;
+	background: url("../img/btn_share.png") 0 0 no-repeat;
+	background-size: 26px 26px;
+	-webkit-background-size: 26px 26px;
+}
+
+.more_info .btn.mail {
+	position: relative;
+	margin-bottom: 32px;
+	padding: 0 46px 0 20px;
+}
+
+.more_info .btn.mail::after {
+	content: '';
+	position: absolute;
+	top: 15px;
+	right: 20px;
+	width: 26px;
+	height: 26px;
+	background: url("../img/btn_mail.png") 0 0 no-repeat;
+	background-size: 26px 26px;
+	-webkit-background-size: 26px 26px;
+}
+
+.more_info .btn_download {
+	display: inline-block;
+	position: relative;
+	width: 335px;
+	height: 72px;
+	background-color: #444a61;
+	-o-border-radius: 50px;
+	-ms-border-radius: 50px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+	padding: 17px 43px 19px 75px;
+	font-family: 'SeuratProB';
+	font-size: 18px;
+	color: #fff;
+}
+
+.more_info .btn_download .mo_320 {
+	display: none;
+}
+
+.more_info .btn_download .important {
+	color: #007f5f;
+}
+
+.more_info .btn_download::before {
+	content: '';
+	position: absolute;
+	top: 14px;
+	left: 25px;
+	width: 42px;
+	height: 43px;
+	background: url("../img/ico_band.png") 0 0 no-repeat;
+	background-size: 42px 43px;
+	-webkit-background-size: 42px 43px;
+}
+
+.more_info .btn_download::after {
+	content: '';
+	position: absolute;
+	top: 29px;
+	right: 26px;
+	width: 14px;
+	height: 14px;
+	background: url("../img/ico_arrow_wh.png") 0 0 no-repeat;
+	background-size: 14px 14px;
+	-webkit-background-size: 14px 14px;
+}
+
+.footer {
+	background-color: #f3f6f9;
+}
+
+.footer .inner {
+	border-top: 1px solid #e1e5ea;
+	padding: 23px 48px;
+	text-align: center;
+}
+
+.footer .text {
+	font-size: 14px;
+	text-align: center;
+	color: #666;
+}
+
+.footer .footer_link {
+	display: inline-block;
+	text-align: center;
+	padding-right: 10px;
+	vertical-align: middle;
+	color: #0dcb67;
+}
+
+.footer .footer_link::after {
+	content: '';
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	vertical-align: middle;
+	background: url("../img/ico_arrow_gr.png") 0 0 no-repeat;
+	background-size: 10px 10px;
+	-webkit-background-size: 10px 10px;
+}
+
+@media screen and (max-width: 374px) {
+	.more_info .btn_download {
+		width: 100%;
+		padding: 14px 70px 14px 80px;
+		font-family: 'SeuratProB';
+		font-size: 18px;
+		line-height: 22px;
+		text-align: left;
+	}
+	.more_info .btn_download .mo_320 {
+		display: block;
+	}
+}
+
+/*# sourceMappingURL=hbd.css.map */
