@@ -385,7 +385,6 @@ a:hover {
 
 .info .tab_list .list_item {
 	position: relative;
-	height: 65px;
 	padding-left: 74px;
 }
 
@@ -462,7 +461,9 @@ a:hover {
 	color: #007f5f;
 }
 
-.info .tab_list .list_item span {
+.info .tab_list .list_item p span {
+	display: block;
+	margin-top: 3px;
 	font-size: 10px;
 	line-height: 1.1;
 	color: #777;

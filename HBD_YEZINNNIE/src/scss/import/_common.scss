@@ -257,7 +257,7 @@
 
         .list_item {
             position: relative;
-            height: 65px;
+            // height: 65px;
             padding-left: 74px;
 
             & + .list_item {
@@ -319,12 +319,14 @@
                     font-family: 'NotoSansB';
                     color: #007f5f;
                 }
-            }
 
-            span {
-                font-size: 10px;
-                line-height: 1.1;
-                color: #777;
+                span {
+                    display: block;
+                    margin-top: 3px;
+                    font-size: 10px;
+                    line-height: 1.1;
+                    color: #777;
+                }
             }
         }
     }
